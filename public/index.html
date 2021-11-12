@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="./script.js"></script>
+    <title>SeaLink Buses</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="container">
+        <div class="buses">
+          <h2>Buses</h2>
+          <form
+            action="/api/bus"
+            method="get"
+            target="_blank"
+            style="margin-bottom: 20px"
+          >
+            <button type="submit">See List of Buses</button>
+          </form>
+          <form action="/api/bus/add" method="post" target="_blank">
+            <label for="bus">Enter Bus Registration: </label>
+            <input required name="bus" placeholder="eg: ABC-123" />
+            <button type="submit">Add Bus</button>
+          </form>
+          <form action="/api/bus/remove" method="post" target="_blank">
+            <label for="bus">Enter Bus Registration: </label>
+            <input required name="bus" placeholder="eg: ABC-123" />
+            <button type="submit">Remove Bus</button>
+          </form>
+        </div>
+        <div class="stops">
+          <h2>Stops</h2>
+          <form
+            action="/api/stop"
+            method="get"
+            target="_blank"
+            style="margin-bottom: 20px"
+          >
+            <button type="submit">See List of Stops</button>
+          </form>
+          <form action="/api/stop/add" method="post" target="_blank">
+            <label for="stop">Enter Stop code: </label>
+            <input required name="stop" placeholder="eg: A1, B3, Q42" />
+            <button type="submit">Add stop</button>
+          </form>
+          <form action="/api/stop/remove" method="post" target="_blank">
+            <label for="stop">Enter Stop code: </label>
+            <input required name="stop" placeholder="eg: A1, B3, Q42" />
+            <button type="submit">Remove Stop</button>
+          </form>
+        </div>
+        <div class="routes">
+          <h2>Routes</h2>
+          <form
+            action="/api/route"
+            method="get"
+            target="_blank"
+            style="margin-bottom: 20px"
+          >
+            <button type="submit">See List of Routes</button>
+          </form>
+          <form action="/api/route/add" method="post" target="_blank">
+            <label for="route">Enter Route name: </label>
+            <input required name="route" placeholder="eg: M44, H22, G40" />
+            <button type="submit">Add Route</button>
+          </form>
+          <form action="/api/route/remove" method="post" target="_blank">
+            <label for="route">Enter Route name: </label>
+            <input required name="route" placeholder="eg: M44, H22, G40" />
+            <button type="submit">Remove Route</button>
+          </form>
+        </div>
+      </div>
+      <div class="container2">
+        <div>
+          <h2 style="margin-bottom: 0">Add Stop to Selected Route</h2>
+          <p style="margin-top: 0">
+            Adds one existing stop to the end of the selected route.
+          </p>
+          <form action="/api/route/add" method="post" target="_blank">
+            <label for="route">Route: </label>
+            <input required name="route" placeholder="eg: M44, H22, G40" />
+            <br />
+            <label for="stop">Stop code: </label>
+            <input required name="stop" placeholder="eg: A1, B3, Q42" />
+            <br />
+            <button type="submit" style="margin: 20px 0">
+              Add Stop to Route
+            </button>
+          </form>
+        </div>
+        <div>
+          <h2 style="margin-bottom: 0">Add line</h2>
+          <p style="margin-top: 0">Adds a line linking two routes and a bus.</p>
+          <form
+            action="/api/line"
+            method="get"
+            target="_blank"
+            style="margin-bottom: 20px"
+          >
+            <button type="submit">See List of Lines</button>
+          </form>
+          <form action="/api/line/add" method="post" target="_blank">
+            <label for="bus">Enter Bus Registration: </label>
+            <input required name="bus" placeholder="eg: ABC-123" />
+            <br />
+            <label for="time">Time: </label>
+            <input required type="time" name="time" />
+            <br />
+            <label for="route1">Forward Route: </label>
+            <input required name="route1" placeholder="eg: M44, H22, G40" />
+            <br />
+            <label for="route2">Return Route: </label>
+            <input required name="route2" placeholder="eg: M44, H22, G40" />
+            <br />
+            <button type="submit" style="margin: 20px 0">Add line</button>
+          </form>
+          <h2 style="margin-bottom: 0">Remove lines</h2>
+          <p style="margin-top: 0">Removes all lines and links to buses.</p>
+          <form action="/api/line/remove" method="post" target="_blank">
+            <button type="submit">Remove lines</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
