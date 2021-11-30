@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require("cors");
 
 //using dotenv to store the mongouri
 require("dotenv").config();
@@ -8,6 +9,7 @@ require("./db");
 
 //initilising the server to use json and serve a static page
 const app = express();
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
