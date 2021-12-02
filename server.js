@@ -24,6 +24,7 @@ app.use("/api/stop", stopRouter);
 app.use("/api/route", routerRouter);
 app.use("/api/line", lineRouter);
 
-app.listen(3000, () => {
+//either use heroku port or port 3000
+app.listen(process.env.PORT || 3000, () => {
   console.log("listening on port 3000");
 });
